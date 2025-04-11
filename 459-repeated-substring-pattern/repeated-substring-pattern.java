@@ -1,18 +1,7 @@
 class Solution {
     public boolean repeatedSubstringPattern(String s) {
-        int length = s.length();
-        for (int i = 1; i <= length /2; i++){
-            if (length % i == 0){
-                String prefix = s.substring(0, i);
-                StringBuilder repeated = new StringBuilder();
-                for (int j = 0; j < length/i; j++){
-                    repeated.append(prefix);
-                }
-                if (repeated.toString().equals(s)) {
-                    return true;
-                }
-            }
-        }
-            return false;
+        String doubled = s + s;
+        String trimmed = doubled.substring(1, doubled.length()-1);
+        return trimmed.contains(s);
     }
 }
